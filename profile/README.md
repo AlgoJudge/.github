@@ -7,8 +7,8 @@ It is built for the range of activities a department actually runs — contests,
 courses, laboratories, training sessions — rather than for one of them.
 
 - Information site: **[algojudge.pl](https://algojudge.pl)**
-- Target application domain: **[algojudge.app](https://algojudge.app)**, which
-  currently redirects to the information site
+- Documentation: **[docs.algojudge.pl](https://docs.algojudge.pl)**
+- Application domain: **[algojudge.app](https://algojudge.app)**
 
 ## What we are trying to do differently
 
@@ -43,19 +43,26 @@ handler, not a change to the Server**. That is tested rather than asserted, twic
 
 ## Status
 
-**No release has been cut.** No repository carries a `v*` tag and nothing has
-been pushed to the container registry, so a `docker pull` instruction in any of
-these repositories describes the path a release will take rather than one that
-works today. The documentation site is built and not yet published.
+**0.1.0 is released.** Six repositories carry `v0.1.0`, and the eight images an
+installation needs are on `ghcr.io/algojudge` and pull without a token.
 
-What exists is the product. The Server holds the domain model, the permission
-model, the API and the operator surface; the Client is wired to it throughout,
-in Polish and English; the Runner compiles, runs and marks real submissions under
-isolation, with an adversarial suite that gates every merge. The deployment
-target is a **self-hosted Docker Compose stack**, which `AlgoJudge-Ops` is.
+The Server holds the domain model, the permission model, the API and the operator
+surface; the Client is wired to it throughout, in Polish and English; the Runner
+compiles, runs and marks real submissions under isolation, with an adversarial
+suite that gates every merge. The deployment target is a **self-hosted Docker
+Compose stack**, which `AlgoJudge-Ops` is: it holds no application code and
+builds nothing, pulling every image by tag, so an update is `docker compose pull`
+and a rollback is a digest.
 
-We would rather say where we are than overstate it — but the Runner is no longer
-a document describing an intention, and this page said it was until today.
+The documentation is published in English and Polish and is **versioned by
+section**, because the parts release independently: `/en/install/v0.1/` is the
+0.1 line and stays there when 0.2 is cut. Nothing is written after the fact — a
+version's pages are copied on release day or not at all, since for an
+installation that has not upgraded the old page is the only one that still
+describes it.
+
+**A `0.x` release promises no backward compatibility.** Every minor release says
+what broke and what to do about it.
 
 ## Licence
 
