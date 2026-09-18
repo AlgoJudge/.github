@@ -1,0 +1,71 @@
+name: Bug report
+description: Something does not work as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report security vulnerabilities privately, as described in the [security policy](https://github.com/AlgoJudge/.github/blob/main/SECURITY.md), not here.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Where you see the problem. Pick the closest one if you are not sure.
+      options:
+        - Client (the web application)
+        - Server (the API)
+        - Runner
+        - External Runner
+        - Ops (installing, updating, backing up)
+        - Documentation
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The release or image tag you run, for example `0.1.0`. Write `main` if you built from source.
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Include the exact error message, if there is one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: The relevant lines only. Remove passwords, tokens, and personal data first.
+      render: text
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, operating system, Docker version — whatever matters for this problem.

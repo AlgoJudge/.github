@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://docs.algojudge.pl/
+    about: Installing, configuring, and using AlgoJudge.
+  - name: Security vulnerability
+    url: https://github.com/AlgoJudge/.github/blob/main/SECURITY.md
+    about: Report it privately. Do not open a public issue.
+  - name: Other questions
+    url: https://github.com/AlgoJudge/.github/blob/main/SUPPORT.md
+    about: Where to ask about anything that is not a bug or a feature request.
