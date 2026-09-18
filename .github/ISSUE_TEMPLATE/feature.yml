@@ -1,0 +1,55 @@
+name: Feature request
+description: Propose something AlgoJudge does not do yet.
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Where the change would be. Pick the closest one if you are not sure.
+      options:
+        - Client (the web application)
+        - Server (the API)
+        - Runner
+        - External Runner
+        - Ops (installing, updating, backing up)
+        - Documentation
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Who needs it
+      multiple: true
+      options:
+        - Participants
+        - Activity managers
+        - Administrators
+        - Operators who install and run AlgoJudge
+        - Developers integrating with AlgoJudge
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What you are trying to do, and what stops you today.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What AlgoJudge should do. Describe the behavior, not the implementation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround
+      description: What you do today instead, if anything.

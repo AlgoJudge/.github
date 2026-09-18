@@ -1,0 +1,48 @@
+name: CodeQL
+
+# Called from each public repository's own `codeql.yml`, which decides when it
+# runs and which languages it analyzes. A workflow cannot be inherited from this
+# repository the way a community health file is, so each repository keeps a
+# short caller and the steps live here once.
+#
+# Every language is analyzed without building. Rust supports nothing else, the
+# Docs build reaches the network, and the Runners build inside a `rust` image
+# that has no Node for this action.
+
+on:
+  workflow_call:
+    inputs:
+      languages:
+        description: A JSON array of CodeQL languages, for example '["csharp", "actions"]'.
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ${{ fromJSON(inputs.languages) }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: none
+
+      - uses: github/codeql-action/analyze@v4
+        with:
+          category: /language:${{ matrix.language }}
