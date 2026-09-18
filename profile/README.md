@@ -64,7 +64,7 @@ describes it.
 **A `0.x` release promises no backward compatibility.** Every minor release says
 what broke and what to do about it.
 
-## Licence
+## License
 
 The code is **MIT**. The documentation pages in `AlgoJudge-Docs` and
 `AlgoJudge-Ops` are **CC BY 4.0**, with the code samples on them staying MIT so
