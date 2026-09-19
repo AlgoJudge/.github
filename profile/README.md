@@ -48,7 +48,7 @@ installation needs are on `ghcr.io/algojudge` and pull without a token.
 
 The Server holds the domain model, the permission model, the API and the operator
 surface; the Client is wired to it throughout, in Polish and English; the Runner
-compiles, runs and marks real submissions under isolation, with an adversarial
+compiles, runs and grades real submissions under isolation, with an adversarial
 suite that gates every merge. The deployment target is a **self-hosted Docker
 Compose stack**, which `AlgoJudge-Ops` is: it holds no application code and
 builds nothing, pulling every image by tag, so an update is `docker compose pull`
