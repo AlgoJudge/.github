@@ -43,8 +43,10 @@ handler, not a change to the Server**. That is tested rather than asserted, twic
 
 ## Status
 
-**0.1.0 is released.** Six repositories carry `v0.1.0`, and the eight images an
-installation needs are on `ghcr.io/algojudge` and pull without a token.
+**0.2.0 is released.** Six repositories carry `v0.2.0`, and the eight images an
+installation needs are on `ghcr.io/algojudge` and pull without a token. 0.2.0
+breaks compatibility with 0.1 on purpose, and its release notes say what an
+installation has to do to upgrade.
 
 The Server holds the domain model, the permission model, the API and the operator
 surface; the Client is wired to it throughout, in Polish and English; the Runner
@@ -55,8 +57,9 @@ builds nothing, pulling every image by tag, so an update is `docker compose pull
 and a rollback is a digest.
 
 The documentation is published in English and Polish and is **versioned by
-section**, because the parts release independently: `/en/install/v0.1/` is the
-0.1 line and stays there when 0.2 is cut. Nothing is written after the fact — a
+section**, because the parts release independently: `/en/install/v0.2/` is the
+0.2 line, and `/en/install/v0.1/` still describes 0.1. Nothing is written after
+the fact — a
 version's pages are copied on release day or not at all, since for an
 installation that has not upgraded the old page is the only one that still
 describes it.
